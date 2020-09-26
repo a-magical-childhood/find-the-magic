@@ -1,0 +1,12 @@
+{
+  "name": "find-the-magic",
+  "displayName": "find-the-magic",
+  "expo": {
+    "name": "find-the-magic",
+    "slug": "find-the-magic",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
