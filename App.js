@@ -1,13 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CurrentLocation from './Components/Location/location';
+import DeMap from './map.js'
+
 
 export default function App() {
+  const [userLocation, setUserLocation] = useState({})
   return (
+    
     <View style={styles.container}>
       <Text>HELLO MERMAIDS!</Text>
-      < CurrentLocation />
+      <DeMap />
       <StatusBar style="auto" />
     </View>
   );
