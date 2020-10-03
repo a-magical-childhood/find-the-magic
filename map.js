@@ -7,7 +7,8 @@ export default function DoMap(){
   const [currentLocation, setCurrentLocation] = useState({
     latitude: 0,
     longitude: 0,
-    error: null
+    error: null,
+    zoomEnabled: true
   })
   
   useEffect(() => {
@@ -57,45 +58,3 @@ export default function DoMap(){
 
 
 
-// export default function DoMap(){
-
-//   const {userLocation} = useContext(SettingsContext)
-
-//   console.log('MAP.JS userLocation', userLocation)
-
-//   let latitude = 37.7882;
-//   let longitude = -122.4324;
-
-  
-//   useEffect(() => {
-//    latitude = userLocation.latitude;
-//    longitude = userLocation.longitude;
-//   }, [userLocation])
-  
-//   const styles = StyleSheet.create({
-//     container: {
-//       ...StyleSheet.absoluteFillObject,
-//     },
-//     map: {
-//       ...StyleSheet.absoluteFillObject,
-//     },
-//   });
-
-//   return(
-//     <View style={styles.container}>
-//       <MapView
-//         style={styles.map}
-//         showsUserLocation={true}
-//         loadingEnabled={true}
-//         region={{
-//           latitude: latitude,
-//           longitude: longitude,
-//           latitudeDelta: 0.0922,
-//           longitudeDelta: 0.0421,
-//         }}
-//        >
-//         {/* <Marker coordinate={userLocation} /> */}
-//         </MapView>
-//     </View>
-//   )
-// }

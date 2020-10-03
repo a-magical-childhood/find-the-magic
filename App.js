@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import CurrentLocation from './Components/Location/location';
+// import CurrentLocation from './Components/Location/location';
 import DeMap from './map.js'
 
 
