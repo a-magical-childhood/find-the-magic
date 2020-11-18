@@ -1,6 +1,7 @@
 import React, {  useEffect, useState} from 'react';
 import MapView, {Marker} from 'react-native-maps';
 import {View, StyleSheet} from 'react-native';
+// import Whales from './whale.js'
 
 
 export default function DoMap(){
@@ -48,6 +49,7 @@ export default function DoMap(){
           }}
         >
           <Marker coordinate={currentLocation} />
+          {/* <Whales />  */}
         </MapView>
       </View>
 
