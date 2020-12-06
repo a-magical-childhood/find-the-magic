@@ -13,7 +13,7 @@ export default function CreatureState (props) {
 
   const getDeCreatures = async () => {
     try{
-      let res = await axios.get('BACKEND LINK HERE');
+      let res = await axios.get('https://heroku-creatures.herokuapp.com/api/v1/creatures/');
       let {data} = res;
       dispatch({ 
         type: "GET_CREATURES", 
@@ -25,7 +25,7 @@ export default function CreatureState (props) {
 
   const getCreatureInfo = async(id) => {
     try{
-      let rest = await axios.get('BACKEND LINK HERE');
+      let rest = await axios.get('https://heroku-creatures.herokuapp.com/api/v1/creatures/');
        let {data} = res;
        dispatch({
          type: "GET_DESCRIPTION",
