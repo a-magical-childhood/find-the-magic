@@ -31,14 +31,19 @@ export default function CreatureList() {
     )
   }, []);
 
+
+
   return (
     <>
       <Marker coordinate={currentLocation}>
         <Image source={KidUser} style={{width:45, height: 75}}></Image>
       </Marker>
+   
       {(CreatureContext.creature && CreatureContext.creature.length) ? CreatureContext.creature.map((creature, idx) => (
+        console.log('******'),
+        console.log('creature insdie creaturelist.js', creature),
         <Marker
-        key={creatureReducer.idx}
+        key={creature.id}
         coordinate={{latitude: creature.cords.latitude, longitude: creature.cords.longitude}}> 
         <Image source={Tail} style={{width: 25, height: 45}} />
       </Marker>

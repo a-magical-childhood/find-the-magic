@@ -13,7 +13,7 @@ export default (state, action) => {
     case GET_CREATURES:
       return {
         ...state,
-        description: payload,
+        creatures: payload,
       }
 
     default: 
