@@ -4,8 +4,10 @@ import { Overlay } from 'react-native-elements';
 import { Marker } from 'react-native-maps';
 
 import Context from './context.js';
-import KidUser from '../../img/youAreHere.gif';
-import Tail from '../../img/tail.png'
+import KidUser from '../../img/explorer.png';
+import Tail from '../../img/mermaid.png'
+import Fairy from '../../img/fairy.png'
+import Dragon from '../../img/dragon.png'
 import creatureReducer from './creatureReducer.js';
 
 
@@ -16,6 +18,8 @@ export default function CreatureList() {
     longitude: 0,
     error: null
   })
+
+  let creatureImage = Tail;
 
   useEffect(() => {
     CreatureContext.getDeCreatures();
@@ -31,21 +35,43 @@ export default function CreatureList() {
     )
   }, []);
 
+  function whichCreature(obj){
+   const { creature_name} = obj
+   console.log('CREATURE NAME', creature_name);
+
+    switch (creature_name) {
+      case 'dragon':
+        creatureImage = Dragon;
+        break;
+      case 'fairy':
+        creatureImage = Fairy;
+        break;
+      default: 
+        creatureImage = Tail;
+        break;
+    }
+  }
+
 
 
   return (
     <>
       <Marker coordinate={currentLocation}>
-        <Image source={KidUser} style={{width:45, height: 75}}></Image>
+        <Image source={KidUser} style={{width:45, height: 45}}></Image>
       </Marker>
    
-      {(CreatureContext.creature && CreatureContext.creature.length) ? CreatureContext.creature.map((creature, idx) => (
+      {(CreatureContext.creatures && CreatureContext.creatures.length) ? CreatureContext.creatures.map((creature, idx) => (
+
+
+
         console.log('******'),
         console.log('creature insdie creaturelist.js', creature),
+        whichCreature(creature),
         <Marker
         key={creature.id}
-        coordinate={{latitude: creature.cords.latitude, longitude: creature.cords.longitude}}> 
-        <Image source={Tail} style={{width: 25, height: 45}} />
+        coordinate={{latitude: creature.latitude, longitude: creature.longitude}}> 
+         
+        <Image source={creatureImage} style={{width: 25, height: 45}} />
       </Marker>
       ))
     : null}

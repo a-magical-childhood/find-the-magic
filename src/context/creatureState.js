@@ -2,7 +2,8 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 
 import Context from './context.js';
-import Reducer from './creatureReducer.js'
+import Reducer from './creatureReducer.js';
+const Creature_API = process.env.Creature_API;
 
 
 
@@ -15,11 +16,11 @@ export default function CreatureState (props) {
   const [state, dispatch] = useReducer(Reducer, initState);
 
   const getDeCreatures = async () => {
-    console.log('inside getDeCreatures in createrState.js')
+   
     try{
-      let res = await axios.get('https://heroku-creatures.herokuapp.com/api/v1/creatures/');
+      let res = await axios.get('https://magicalcreatures-tempbackend.herokuapp.com/api/v1/creatures');
       let {data} = res;
-      console.log('DATA', data);
+    
       dispatch({ 
         type: "GET_CREATURES", 
         payload: data})
@@ -30,7 +31,7 @@ export default function CreatureState (props) {
 
   const getCreatureInfo = async(id) => {
     try{
-      let rest = await axios.get('https://heroku-creatures.herokuapp.com/api/v1/creatures/${id}');
+      let rest = await axios.get('https://magicalcreatures-tempbackend.herokuapp.com/api/v1/creatures/${id}');
        let {data} = res;
        dispatch({
          type: "GET_DESCRIPTION",
